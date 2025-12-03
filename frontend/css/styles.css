@@ -1,0 +1,170 @@
+ 
+        :root {
+            --bs-green-dark: #2e7d32;
+            --bs-green-mid: #81c784;
+            --bs-green-light: #dcedc8;
+            --bs-cream: #f5f5f0;
+            --bs-border: #c8d8c0;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: var(--bs-cream);
+            color: #333;
+        }
+
+        /* --- Layout --- */
+        .layout {
+            display: grid;
+            grid-template-columns: 280px 1fr 380px;
+            height: 100vh;
+        }
+
+        /* --- Left Column --- */
+        .left-panel {
+            background: var(--bs-green-light);
+            padding: 15px;
+            border-right: 1px solid var(--bs-border);
+            overflow-y: auto;
+        }
+
+        .panel-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--bs-green-dark);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-item {
+            padding: 6px 8px;
+            margin: 3px 0;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        /* --- Center Column --- */
+        .center-panel {
+            padding: 20px;
+            overflow-y: auto;
+            background: #fafafa;
+            border-right: 1px solid var(--bs-border);
+        }
+
+        .chat-box {
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            min-height: 220px;
+        }
+
+        .input-area {
+            margin-top: 12px;
+            display: flex;
+            gap: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 60px;
+            resize: vertical;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+        }
+
+        .bs-button {
+            background: var(--bs-green-dark);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .bs-button:hover {
+            background: #256428;
+        }
+
+        /* --- Right Column (Plots) --- */
+        .right-panel {
+            background: var(--bs-green-light);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            padding: 8px 12px;
+            background: #fff;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .tab.active {
+            background: var(--bs-green-mid);
+            border-color: var(--bs-green-dark);
+            color: #000;
+        }
+
+        .plot-area {
+            height: 420px;
+            border: 2px dashed #bcd0b0;
+            border-radius: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                #dcedc8,
+                #dcedc8 10px,
+                #f5f5f0 10px,
+                #f5f5f0 20px
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* --- KPIs Footer --- */
+        .kpi-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .kpi-box {
+            flex: 1;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+            padding: 10px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .kpi-label {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .kpi-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--bs-green-dark);
+        }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burro-Sabio Workbench</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+
+   
+    <!-- Interactivity JS -->
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            document.getElementById("tab-" + tabName).classList.add("active");
+
+            const plot = document.getElementById("plot-text");
+            if (tabName === "voltages") plot.textContent = "Generalized Voltage Profile (Placeholder)";
+            if (tabName === "currents") plot.textContent = "Current Magnitudes (Placeholder)";
+            if (tabName === "losses") plot.textContent = "Loss Distribution (Placeholder)";
+            if (tabName === "graph") plot.textContent = "Network Graph Visualization (Placeholder)";
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+            <div class="panel-title">MODELS & DATA</div>
+
+            <div class="section">
+                <div class="panel-title">Feeders</div>
+                <div class="section-item">Feeder_Morelia_13kV.dss</div>
+                <div class="section-item">TrenMaya_Segment3.dss</div>
+                <div class="section-item">Rural_Feeder_Example.dss</div>
+            </div>
+
+            <div class="section">
+                <div class="panel-title">Data Drop Objects</div>
+                <div class="section-item">WireData: ACSR_4/0</div>
+                <div class="section-item">LineCode: URBAN_3PH</div>
+                <div class="section-item">LoadShape: EVENING_PEAK</div>
+            </div>
+
+            <div class="section">
+                <div class="panel-title">Scenarios</div>
+                <div class="section-item">Base Case</div>
+                <div class="section-item">PV Penetration 25%</div>
+                <div class="section-item">High Imbalance</div>
+            </div>
+        </div>
+
+        <!-- CENTER PANEL -->
+        <div class="center-panel">
+            <h2>Interaction</h2>
+
+            <div class="chat-box">
+                <b>Burro-Sabio:</b> Feeder loaded. Describe a scenario or ask a question.
+                <br><br>
+                Example: <i>“Simulate the base case and show the worst-regulated buses.”</i>
+            </div>
+
+            <div class="input-area">
+                <textarea placeholder="Type a scenario or a question..."></textarea>
+                <button class="bs-button">Run</button>
+            </div>
+
+            <div style="margin-top: 16px;">
+                <button class="bs-button">Run Simulation</button>
+                <button class="bs-button">Kersting Approx</button>
+                <button class="bs-button">Hosting Capacity</button>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+            <h3>Visuals & Reports</h3>
+
+            <div class="tabs">
+                <div id="tab-voltages" class="tab active" onclick="switchTab('voltages')">Voltages</div>
+                <div id="tab-currents" class="tab" onclick="switchTab('currents')">Currents</div>
+                <div id="tab-losses" class="tab" onclick="switchTab('losses')">Losses</div>
+                <div id="tab-graph" class="tab" onclick="switchTab('graph')">Network Graph</div>
+            </div>
+
+            <div class="plot-area">
+                <div id="plot-text">
+                    Generalized Voltage Profile (Placeholder)
+                </div>
+            </div>
+
+            <div class="kpi-row">
+                <div class="kpi-box">
+                    <div class="kpi-label">WORST V (p.u.)</div>
+                    <div class="kpi-value">0.921</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-label">TOTAL LOSSES (kW)</div>
+                    <div class="kpi-value">134.5</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-label">BUSES < 0.95 p.u.</div>
+                    <div class="kpi-value">7</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
